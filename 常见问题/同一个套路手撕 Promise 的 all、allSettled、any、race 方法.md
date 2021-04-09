@@ -16,7 +16,7 @@
    - race 方法在任意一个输入的 Promise 实例改变状态后以相同的状态改变自身。
 2. 返回的 Promise 实例的[终值（eventual）或拒因（reason）](https://www.ituring.com.cn/article/66566)不同
    - all 方法返回的 Promise 实例终值是一个数组，数组的成员是所有输入的 Promise 实例的终值，并将会按照参数内的 promise 顺序排列，而不是由调用 promise 的完成顺序决定。拒因是输入的 Promise 实例中第一个状态变为 rejected 的拒因。
-   - allSettled 方法返回的 Promise 实例终值也是一个数组，顺序同 promise 输入顺序，其中每个成员在输入 promise 为 resolved 状态时为 `{status:'fulfilled', value:同一个终值}`
+   - allSettled 方法返回的 Promise 实例终值也是一个数组，顺序同 promise 输入顺序，其中每个成员在输入 promise 为 resolved 状态时为 `{status:'fulfilled', value:同一个终值}`，rejected 状态时为 `{status:'rejected', reason:同一个拒因}`。
 3. 参数为空迭代对象时，返回值不同
    - all 方法会同步地返回一个已完成（resolved）状态的 promise，其终值是一个空数组。
    - allSettled 方法和 all 方法表现相同。
